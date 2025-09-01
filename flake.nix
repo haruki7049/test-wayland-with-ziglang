@@ -35,7 +35,9 @@
           ...
         }:
         let
-          buildInputs = [ ];
+          buildInputs = [
+            pkgs.wayland
+          ];
           nativeBuildInputs = [
             # Compiler
             pkgs.zig_0_15

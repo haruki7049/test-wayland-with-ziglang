@@ -7,7 +7,9 @@ pub fn build(b: *std.Build) void {
     const mod = b.addModule("test_wayland_with_ziglang", .{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
+        .link_libc = true,
     });
+    mod.linkSystemLibrary("wayland-server", .{});
 
     const exe = b.addExecutable(.{
         .name = "test_wayland_with_ziglang",
